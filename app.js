@@ -1,4 +1,4 @@
-const DEFAULT_CSV_PATH = "../portfolio-data-2003-2026Q1.csv";
+const DEFAULT_CSV_PATH = "./portfolio-data-2003-2026Q1.csv";
 
 const statusEl = document.getElementById("status");
 const mapSubtitle = document.getElementById("map-subtitle");
