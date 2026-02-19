@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>UNESCO Grants Footprint</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+  </head>
+  <body>
+    <div class="grain"></div>
+    <header class="hero">
+      <div class="hero__content">
+        <p class="eyebrow">GPE Portfolio 2003-2026 Q1</p>
+        <h1>UNESCO Grant Footprint</h1>
+        <p class="subhead">
+          Explore where UNESCO serves as grant agent, and compare Active vs Closed grants at a glance.
+        </p>
+        <div class="controls">
+          <div class="control control--inline">
+            <span class="control__label">Grant status</span>
+            <div class="status-toggle" role="tablist" aria-label="Status filter">
+              <button class="toggle active" data-status="All" role="tab">All</button>
+              <button class="toggle" data-status="Active" role="tab">Active</button>
+              <button class="toggle" data-status="Closed" role="tab">Closed</button>
+            </div>
+          </div>
+          <div class="control control--inline">
+            <span class="control__label">Agent role</span>
+            <div class="status-toggle role-toggle" role="tablist" aria-label="Agent role filter">
+              <button class="toggle active" data-role="All" role="tab">All</button>
+              <button class="toggle" data-role="Solo" role="tab">Solo</button>
+              <button class="toggle" data-role="Shared" role="tab">Shared</button>
+            </div>
+          </div>
+        </div>
+        <div id="status" class="status"></div>
+      </div>
+    </header>
+
+    <main>
+      <section class="cards" aria-label="Summary">
+        <article class="card">
+          <p class="card__label">UNESCO Grants</p>
+          <p class="card__value" id="metric-total">-</p>
+        </article>
+        <article class="card">
+          <p class="card__label">Active</p>
+          <p class="card__value" id="metric-active">-</p>
+        </article>
+        <article class="card">
+          <p class="card__label">Closed</p>
+          <p class="card__value" id="metric-closed">-</p>
+        </article>
+        <article class="card">
+          <p class="card__label">Grant Amount</p>
+          <p class="card__value" id="metric-amount">-</p>
+        </article>
+        <article class="card">
+          <p class="card__label">Countries</p>
+          <p class="card__value" id="metric-countries">-</p>
+        </article>
+        <article class="card">
+          <p class="card__label">Regions</p>
+          <p class="card__value" id="metric-regions">-</p>
+        </article>
+      </section>
+
+      <section class="map-panel">
+        <div class="panel__header">
+          <h2>Map</h2>
+          <p id="map-subtitle" class="panel__subhead"></p>
+        </div>
+        <div id="map" class="map"></div>
+        <p id="map-missing" class="panel__note"></p>
+      </section>
+
+      <section class="grid">
+        <div class="panel">
+          <div class="panel__header">
+            <h2>By Country</h2>
+            <p class="panel__subhead">Counts of UNESCO grants by country</p>
+          </div>
+          <div class="table" id="country-table"></div>
+        </div>
+        <div class="panel">
+          <div class="panel__header">
+            <h2>By Region</h2>
+            <p class="panel__subhead">Counts of UNESCO grants by region</p>
+          </div>
+          <div class="table" id="region-table"></div>
+          <div class="panel__footer">
+            <p class="panel__note" id="status-breakdown"></p>
+            <p class="panel__note" id="role-breakdown"></p>
+            <p class="panel__note" id="amount-breakdown"></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel detail">
+        <div class="panel__header">
+          <h2>Grant Rows</h2>
+          <p class="panel__subhead">Filtered UNESCO rows for deeper review</p>
+        </div>
+        <div class="table" id="detail-table"></div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>
+        Run a local server from the repo root and open
+        <span class="mono">http://localhost:8000/unesco_grants_app/</span>.
+      </p>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
